@@ -11,8 +11,8 @@ const decode = (image, opts={}) => {
       if (chunk.data[start] === 0) nullByteCount++
       if (nullByteCount == 2) break
     }
-    const keyword = Buffer.from(chunk.data.slice(0, start-1))
-    if (keyword.equals(keyword)) {
+    const k = Buffer.from(chunk.data.slice(0, start-1))
+    if (keyword.equals(k)) {
       return Buffer.from(chunk.data.slice(start+1))
     }
   }
